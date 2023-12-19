@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1">
+            <div class="file"></div>
+            <div class="folder"></div>
+            <div class="upload"></div>
+        </div>
+        <div class="box2">
+            <div class="message">
+                <span class="space_left">185</span> GB LEFT
+            </div>
+            <p>You’ve used <span class="space_used">815 GB</span> of your storage</p>
+            <div class="input">
+                <input type="range" id="inputRange" min="0" max="1000" value="815">
+            </div>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="https://www.frontendmentor.io/profile/AhmedBenRami">Ahmed</a>.
+    </div>
+
+    <script>
+        let input = document.getElementById("inputRange");
+        let spaceUsed = document.getElementsByClassName("space_used")[0];
+        let spaceLeft = document.getElementsByClassName("space_left")[0];
+
+        function a() {
+            document.documentElement.style.setProperty('--used-gb', `calc(${input.value} / 1000 * 100%)`);
+            spaceUsed.innerHTML = `${input.value} GB`;
+            spaceLeft.innerHTML = 1000 - parseInt(input.value);
+        }
+        setInterval(a, 50);
+
+    </script>
+</body>
+
+</html>
