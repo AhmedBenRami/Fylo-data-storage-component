@@ -214,6 +214,28 @@ input::before {
     font-weight: bold;
 }
 
+svg {
+    width: 25px;
+    height: 25px;
+    stroke: none;
+}
+
+path {
+    fill: white;
+}
+
+svg:hover {
+    stroke: black;
+}
+
+svg:hover circle {
+    fill: white;
+}
+
+svg:hover path {
+    fill: black
+}
+
 @media (max-width: 750px) {
     * {
         margin: 0;
