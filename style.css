@@ -160,6 +160,40 @@ input::before {
     z-index: 1;
 }
 
+#pseudo-element {
+    display: none;
+}
+
+@supports(-moz-appearance: none) {
+    #pseudo-element {
+        display: block;
+        width: calc((1000 - 185) / 1000 * 100% + 5px);
+        height: 15px;
+        border-radius: var(--border-radius);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, -10px);
+        background: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+        background-repeat: no-repeat;
+        z-index: 0;
+    }
+
+    #pseudo-element::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        right: 3px;
+        transform: translate(0, -50%);
+        z-index: 3;
+    }
+}
+
+
 .box2 input::-moz-range-thumb {
     appearance: none;
     height: 10px;
@@ -167,7 +201,7 @@ input::before {
     background: white;
     border-radius: 50%;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .box2 input::-webkit-slider-thumb {
@@ -177,7 +211,7 @@ input::before {
     background: white;
     border-radius: 50%;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .input {
